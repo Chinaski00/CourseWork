@@ -22,7 +22,7 @@ public class Main {
         for (Employee b:employs) {
             sum += b.getWages();
         }
-        System.out.println("\n Cумма затрат на зарплаты в месяц = " + sum + " рублей.");
+        System.out.println("\n CСѓРјРјР° Р·Р°С‚СЂР°С‚ РЅР° Р·Р°СЂРїР»Р°С‚С‹ РІ РјРµСЃСЏС† = " + sum + " СЂСѓР±Р»РµР№.");
     }
 
     public static void minMaxCashWages(Employee[] employs){
@@ -35,14 +35,14 @@ public class Main {
                 max = c;
             }
         }
-        System.out.println("\n Минимальная зарплата " + min.getWages() + ", а максимальная " + max.getWages());
+        System.out.println("\n РњРёРЅРёРјР°Р»СЊРЅР°СЏ Р·Р°СЂРїР»Р°С‚Р° " + min.getWages() + ", Р° РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ " + max.getWages());
     }
     public static void averageValueWages(Employee[] employees){
         int sum = 0;
         for (Employee d: employees) {
             sum += d.getWages();
         }
-        System.out.printf("\n Средняя зарплата = %.2f", sum / (float) employees.length);
+        System.out.printf("\n РЎСЂРµРґРЅСЏСЏ Р·Р°СЂРїР»Р°С‚Р° = %.2f", sum / (float) employees.length);
     }
     public static void nameAllEmployee(Employee[] employees){
         for (Employee e:employees) {
@@ -59,7 +59,7 @@ public class Main {
             double v;
             v = a.getWages() * (1 + prozent);
             a.setWages(v);
-            System.out.printf("\n Зарплата после индексикации - " + a.getFullName() + " - %.2f ", a.getWages());
+            System.out.printf("\n Р—Р°СЂРїР»Р°С‚Р° РїРѕСЃР»Рµ РёРЅРґРµРєСЃРёРєР°С†РёРё - " + a.getFullName() + " - %.2f ", a.getWages());
         }
     }
 
@@ -77,7 +77,7 @@ public class Main {
                 sum += c.getWages();
             }
         }
-        System.out.println("\n Минимальная зарплата сотрудника в отделе " + a + " равна " + min.getWages() + ", максимальная " + max.getWages() + ". А сумма затрат по отделу " + sum + ". (с учётом индексикации)");
+        System.out.println("\n РњРёРЅРёРјР°Р»СЊРЅР°СЏ Р·Р°СЂРїР»Р°С‚Р° СЃРѕС‚СЂСѓРґРЅРёРєР° РІ РѕС‚РґРµР»Рµ " + a + " СЂР°РІРЅР° " + min.getWages() + ", РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ " + max.getWages() + ". Рђ СЃСѓРјРјР° Р·Р°С‚СЂР°С‚ РїРѕ РѕС‚РґРµР»Сѓ " + sum + ". (СЃ СѓС‡С‘С‚РѕРј РёРЅРґРµРєСЃРёРєР°С†РёРё)");
     }
     public static void averageSalaryByDepartment(Employee[] employees, int a){
         int sum = 0;
@@ -89,7 +89,7 @@ public class Main {
             }
         }
         sum = sum / employsDep;
-        System.out.println("Средняя зарплата по отделу " + a + " = " + sum);
+        System.out.println("РЎСЂРµРґРЅСЏСЏ Р·Р°СЂРїР»Р°С‚Р° РїРѕ РѕС‚РґРµР»Сѓ " + a + " = " + sum);
     }
 
     public static void indexingSalariesAllEmployeesDepartment(Employee[] employees, int a, double prozent){
@@ -98,7 +98,7 @@ public class Main {
             if (c.getDepartment() == a){
                 v = c.getWages() * (1 + prozent);
                 c.setWages(v);
-                System.out.printf("\n Зарплата после индексикации в отделе "+ a + " " + c.getFullName() + " - %.2f ", c.getWages());
+                System.out.printf("\n Р—Р°СЂРїР»Р°С‚Р° РїРѕСЃР»Рµ РёРЅРґРµРєСЃРёРєР°С†РёРё РІ РѕС‚РґРµР»Рµ "+ a + " " + c.getFullName() + " - %.2f ", c.getWages());
             }
         }
     }
@@ -106,7 +106,7 @@ public class Main {
     public static void printEmployeesNotId(Employee[]employees){
         for (Employee a:employees) {
             if (a != null){
-                System.out.println("Сотрудник: " + a.getFullName() + " |Отдел: " + a.getDepartment() + "| Зарплата: " + a.getWages());
+                System.out.println("РЎРѕС‚СЂСѓРґРЅРёРє: " + a.getFullName() + " |РћС‚РґРµР»: " + a.getDepartment() + "| Р—Р°СЂРїР»Р°С‚Р°: " + a.getWages());
             } else {
                 break;
             }
@@ -115,36 +115,36 @@ public class Main {
     }
 
     public static void allEmployeesSalaryLessNumber(Employee[]employees, double a){
-        System.out.println("Все сотрудники с зарплатой меньше числа:");
+        System.out.println("Р’СЃРµ СЃРѕС‚СЂСѓРґРЅРёРєРё СЃ Р·Р°СЂРїР»Р°С‚РѕР№ РјРµРЅСЊС€Рµ С‡РёСЃР»Р°:");
         for (Employee c:employees) {
             double v;
             if (a > c.getWages()){
-                System.out.println("Сотрудник: " + c.getFullName() + "| Зарплата: " + c.getWages() + "| Id: " + c.getId());
+                System.out.println("РЎРѕС‚СЂСѓРґРЅРёРє: " + c.getFullName() + "| Р—Р°СЂРїР»Р°С‚Р°: " + c.getWages() + "| Id: " + c.getId());
             }
         }
     }
     public static void allEmployeesSalaryMoreNumber(Employee[]employees, double a){
         System.out.println("");
-        System.out.println("Все сотрудники с зарплатой больше числа:");
+        System.out.println("Р’СЃРµ СЃРѕС‚СЂСѓРґРЅРёРєРё СЃ Р·Р°СЂРїР»Р°С‚РѕР№ Р±РѕР»СЊС€Рµ С‡РёСЃР»Р°:");
         for (Employee c:employees) {
             double v;
             if (a < c.getWages()){
-                System.out.println("Сотрудник: " + c.getFullName() + "| Зарплата: " + c.getWages() + "| Id: " + c.getId());
+                System.out.println("РЎРѕС‚СЂСѓРґРЅРёРє: " + c.getFullName() + "| Р—Р°СЂРїР»Р°С‚Р°: " + c.getWages() + "| Id: " + c.getId());
             }
         }
     }
     public static void main (String[]args){
         Employee[] allEmployees = new Employee[10];
-        Employee employee1 = new Employee("Гарбуз Андрей Борисович", 1,50000.00);
-        Employee employee2 = new Employee("Чинаски Константин Евгеньевич", 2,20000.00);
-        Employee employee3 = new Employee("Воржавин Иван Дмитриевич", 3,70000.00);
-        Employee employee4 = new Employee("Отерро Сергей Дмитриевч", 5,20000.00);
-        Employee employee5 = new Employee("Иванов Владимир Константинович", 4,15000.00);
-        Employee employee6 = new Employee("Демьянова Карина Юрьевна", 1,32000.00);
-        Employee employee7 = new Employee("Пушков Никита Владимирович", 5,83000.00);
-        Employee employee8 = new Employee("Клевна Анжелика Вячеславовна", 2,34000.00);
-        Employee employee9 = new Employee("Иванов Марк Андреевич", 1,44000.00);
-        Employee employee10 = new Employee("Волкова Елизавета Игоревна", 3,90000.00);
+        Employee employee1 = new Employee("Р“Р°СЂР±СѓР· РђРЅРґСЂРµР№ Р‘РѕСЂРёСЃРѕРІРёС‡", 1,50000.00);
+        Employee employee2 = new Employee("Р§РёРЅР°СЃРєРё РљРѕРЅСЃС‚Р°РЅС‚РёРЅ Р•РІРіРµРЅСЊРµРІРёС‡", 2,20000.00);
+        Employee employee3 = new Employee("Р’РѕСЂР¶Р°РІРёРЅ РРІР°РЅ Р”РјРёС‚СЂРёРµРІРёС‡", 3,70000.00);
+        Employee employee4 = new Employee("РћС‚РµСЂСЂРѕ РЎРµСЂРіРµР№ Р”РјРёС‚СЂРёРµРІС‡", 5,20000.00);
+        Employee employee5 = new Employee("РРІР°РЅРѕРІ Р’Р»Р°РґРёРјРёСЂ РљРѕРЅСЃС‚Р°РЅС‚РёРЅРѕРІРёС‡", 4,15000.00);
+        Employee employee6 = new Employee("Р”РµРјСЊСЏРЅРѕРІР° РљР°СЂРёРЅР° Р®СЂСЊРµРІРЅР°", 1,32000.00);
+        Employee employee7 = new Employee("РџСѓС€РєРѕРІ РќРёРєРёС‚Р° Р’Р»Р°РґРёРјРёСЂРѕРІРёС‡", 5,83000.00);
+        Employee employee8 = new Employee("РљР»РµРІРЅР° РђРЅР¶РµР»РёРєР° Р’СЏС‡РµСЃР»Р°РІРѕРІРЅР°", 2,34000.00);
+        Employee employee9 = new Employee("РРІР°РЅРѕРІ РњР°СЂРє РђРЅРґСЂРµРµРІРёС‡", 1,44000.00);
+        Employee employee10 = new Employee("Р’РѕР»РєРѕРІР° Р•Р»РёР·Р°РІРµС‚Р° РРіРѕСЂРµРІРЅР°", 3,90000.00);
         addEmployees(allEmployees, employee1);
         addEmployees(allEmployees, employee2);
         addEmployees(allEmployees, employee3);
