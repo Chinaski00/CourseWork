@@ -9,9 +9,9 @@ public class Main {
         return false;
     }
     public static void printEmloyee(Employee[] employee){
-        for (Employee a:employee) {
-            if (a != null){
-                System.out.println(a.toString());
+        for (Employee employe:employee) {
+            if (employe != null){
+                System.out.println(employe.toString());
             } else {
                 break;
             }
@@ -19,8 +19,12 @@ public class Main {
     }
     public static void cashWages(Employee[] employs){
         int sum = 0;
-        for (Employee b:employs) {
-            sum += b.getWages();
+        for (Employee employee:employs) {
+            if (employee != null){
+                sum += employee.getWages();
+            } else {
+                break;
+            }
         }
         System.out.println("\n Cумма затрат на зарплаты в месяц = " + sum + " рублей.");
     }
@@ -28,38 +32,37 @@ public class Main {
     public static void minMaxCashWages(Employee[] employs){
         Employee min = employs[0];
         Employee max = employs[0];
-        for (Employee c:employs) {
-            if (c.getWages() < min.getWages()){
-                min = c;
-            } else if (c.getWages() > min.getWages()) {
-                max = c;
+        for (Employee employee:employs) {
+            if (employee.getWages() < min.getWages()){
+                min = employee;
+            } else if (employee.getWages() > max.getWages()) {
+                max = employee;
             }
         }
         System.out.println("\n Минимальная зарплата " + min.getWages() + ", а максимальная " + max.getWages());
     }
     public static void averageValueWages(Employee[] employees){
         int sum = 0;
-        for (Employee d: employees) {
-            sum += d.getWages();
+        for (Employee employee: employees) {
+            sum += employee.getWages();
         }
         System.out.printf("\n Средняя зарплата = %.2f", sum / (float) employees.length);
     }
     public static void nameAllEmployee(Employee[] employees){
-        for (Employee e:employees) {
-            if (e != null){
+        for (Employee employee:employees) {
+            if (employee != null){
                 System.out.println("");
                 System.out.println("======================");
-                System.out.println(e.getFullName());
+                System.out.println(employee.getFullName());
             }
         }
     }
     public static void wagesIndexation(Employee[] employees){
         double prozent = 0.2;
-        for (Employee a: employees) {
-            double v;
-            v = a.getWages() * (1 + prozent);
-            a.setWages(v);
-            System.out.printf("\n Зарплата после индексикации - " + a.getFullName() + " - %.2f ", a.getWages());
+        for (Employee employee: employees) {
+            double newWages = employee.getWages() * (1 + prozent);
+            employee.setWages(newWages);
+            System.out.printf("\n Зарплата после индексикации - " + employee.getFullName() + " - %.2f ", employee.getWages());
         }
     }
 
@@ -67,14 +70,14 @@ public class Main {
         Employee min = employees[0];
         Employee max = employees[0];
         int sum = 0;
-        for (Employee c: employees) {
-            if (c.getWages() < min.getWages() && c.getDepartment() == a){
-                min = c;
-            } else if (c.getWages() > min.getWages() && c.getDepartment() == a) {
-                max = c;
+        for (Employee employee: employees) {
+            if (employee.getWages() < min.getWages() && employee.getDepartment() == a){
+                min = employee;
+            } else if (employee.getWages() > min.getWages() && employee.getDepartment() == a) {
+                max = employee;
             }
-            if (c.getDepartment() == a){
-                sum += c.getWages();
+            if (employee.getDepartment() == a){
+                sum += employee.getWages();
             }
         }
         System.out.println("\n Минимальная зарплата сотрудника в отделе " + a + " равна " + min.getWages() + ", максимальная " + max.getWages() + ". А сумма затрат по отделу " + sum + ". (с учётом индексикации)");
@@ -82,10 +85,10 @@ public class Main {
     public static void averageSalaryByDepartment(Employee[] employees, int a){
         int sum = 0;
         int employsDep = 0;
-        for (Employee c: employees) {
-            if (c.getDepartment() == a){
+        for (Employee employee: employees) {
+            if (employee.getDepartment() == a){
                 employsDep++;
-                sum += c.getWages();
+                sum += employee.getWages();
             }
         }
         sum = sum / employsDep;
@@ -93,20 +96,20 @@ public class Main {
     }
 
     public static void indexingSalariesAllEmployeesDepartment(Employee[] employees, int a, double prozent){
-        for (Employee c: employees) {
+        for (Employee employee: employees) {
             double v;
-            if (c.getDepartment() == a){
-                v = c.getWages() * (1 + prozent);
-                c.setWages(v);
-                System.out.printf("\n Зарплата после индексикации в отделе "+ a + " " + c.getFullName() + " - %.2f ", c.getWages());
+            if (employee.getDepartment() == a){
+                v = employee.getWages() * (1 + prozent);
+                employee.setWages(v);
+                System.out.printf("\n Зарплата после индексикации в отделе "+ a + " " + employee.getFullName() + " - %.2f ", employee.getWages());
             }
         }
     }
 
     public static void printEmployeesNotId(Employee[]employees){
-        for (Employee a:employees) {
-            if (a != null){
-                System.out.println("Сотрудник: " + a.getFullName() + " |Отдел: " + a.getDepartment() + "| Зарплата: " + a.getWages());
+        for (Employee employee:employees) {
+            if (employee != null){
+                System.out.println("Сотрудник: " + employee.getFullName() + " |Отдел: " + employee.getDepartment() + "| Зарплата: " + employee.getWages());
             } else {
                 break;
             }
@@ -116,23 +119,24 @@ public class Main {
 
     public static void allEmployeesSalaryLessNumber(Employee[]employees, double a){
         System.out.println("Все сотрудники с зарплатой меньше числа:");
-        for (Employee c:employees) {
+        for (Employee employee:employees) {
             double v;
-            if (a > c.getWages()){
-                System.out.println("Сотрудник: " + c.getFullName() + "| Зарплата: " + c.getWages() + "| Id: " + c.getId());
+            if (a > employee.getWages()){
+                System.out.println("Сотрудник: " + employee.getFullName() + "| Зарплата: " + employee.getWages() + "| Id: " + employee.getId());
             }
         }
     }
     public static void allEmployeesSalaryMoreNumber(Employee[]employees, double a){
         System.out.println("");
         System.out.println("Все сотрудники с зарплатой больше числа:");
-        for (Employee c:employees) {
+        for (Employee employee:employees) {
             double v;
-            if (a < c.getWages()){
-                System.out.println("Сотрудник: " + c.getFullName() + "| Зарплата: " + c.getWages() + "| Id: " + c.getId());
+            if (a < employee.getWages()){
+                System.out.println("Сотрудник: " + employee.getFullName() + "| Зарплата: " + employee.getWages() + "| Id: " + employee.getId());
             }
         }
     }
+
     public static void main (String[]args){
         Employee[] allEmployees = new Employee[10];
         Employee employee1 = new Employee("Гарбуз Андрей Борисович", 1,50000.00);
@@ -145,6 +149,7 @@ public class Main {
         Employee employee8 = new Employee("Клевна Анжелика Вячеславовна", 2,34000.00);
         Employee employee9 = new Employee("Иванов Марк Андреевич", 1,44000.00);
         Employee employee10 = new Employee("Волкова Елизавета Игоревна", 3,90000.00);
+
         addEmployees(allEmployees, employee1);
         addEmployees(allEmployees, employee2);
         addEmployees(allEmployees, employee3);
